@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::get('/kontakt', function () {
     return view('ogolny.kontakt');
-});
+})->name('kontakt');
 
 Route::get('/onas', function () {
     $zadania = [
@@ -27,4 +27,4 @@ Route::get('/onas', function () {
         'Zadanie 3'
     ];
     return view('ogolny.onas',['zadania' => $zadania]);
-});
+})->name('onas');
