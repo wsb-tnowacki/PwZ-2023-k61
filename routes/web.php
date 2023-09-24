@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('layout');
-});
+})->name('start');
 Route::get('/kontakt', function () {
     return view('ogolny.kontakt');
 })->name('kontakt');
