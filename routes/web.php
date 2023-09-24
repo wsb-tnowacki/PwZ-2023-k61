@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\KontrolerStart;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,18 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-})->name('start');
-Route::get('/kontakt', function () {
-    return view('ogolny.kontakt');
-})->name('kontakt');
 
-Route::get('/onas', function () {
-    $zadania = [
-        'Zadanie 1',
-        'Zadanie 2',
-        'Zadanie 3'
-    ];
-    return view('ogolny.onas',['zadania' => $zadania]);
-})->name('onas');
+Route::get('/', [KontrolerStart::class,'start'])->name('start');
+Route::get('/kontakt', [KontrolerStart::class,'kontakt'])->name('kontakt');
+Route::get('/onas', [KontrolerStart::class,'onas'])->name('onas');
