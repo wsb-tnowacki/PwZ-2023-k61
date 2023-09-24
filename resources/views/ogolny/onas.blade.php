@@ -8,5 +8,11 @@
 @endsection
 
 @section('tresc')
-    <div>Treść dla informacji o nas </div>
+    <div>Treść dla informacji o nas 
+        <ol>
+            <?php foreach ($zadania ?? '' as $zadanie) : ?>
+            <li><?= $zadanie ?></li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
 @endsection
