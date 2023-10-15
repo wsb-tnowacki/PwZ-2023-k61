@@ -28,4 +28,10 @@ class KontrolerStart extends Controller
         ];
         return view('ogolny.onas',['zadania' => $zadania]);
     }
+
+    /* public function test(string $onas, string $id)
+    {
+        echo "ID: $id <br> O nas: $onas <br>";
+        return ('OK');
+    } */
 }

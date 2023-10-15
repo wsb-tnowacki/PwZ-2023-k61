@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KontrolerStart;
+use App\Http\Controllers\PostController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +24,7 @@ Route::controller(KontrolerStart::class)->group(function(){
     Route::get('/', 'start')->name('start');
     Route::get('/kontakt', 'kontakt')->name('kontakt');
     Route::get('/onas', 'onas')->name('onas');
+    //Route::get('/onas/{id}/info/{onas}', 'test')->name('test');
 });
+
+Route::resource('posty',PostController::class);
