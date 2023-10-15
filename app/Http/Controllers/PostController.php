@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Redis\Limiters\DurationLimiterBuilder;
 
 class PostController extends Controller
 {
@@ -21,6 +22,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        //dump(request());
         return view('posty.dodaj');
     }
 
@@ -33,6 +35,12 @@ class PostController extends Controller
         //dump($request);
         //dd($request);
         //$request->dump();
+        $request->validate([
+            'tytul' => 'required|min:6',
+            'autor' => 'required|min:2',
+            'email' => 'email:rfc',
+            'tresc' => 'required|min:5'
+        ]);
         return ('ok');
     }
 
