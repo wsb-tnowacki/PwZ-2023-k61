@@ -21,7 +21,8 @@ class PostController extends Controller
     public function index()
     {
         //
-        $posty = Posty::all(); // $posty = new Posty(); $posty->all();
+        //$posty = Posty::all(); // $posty = new Posty(); $posty->all();
+        $posty = Posty::paginate(5);
         return view('posty.index', compact('posty')); 
     }
 
