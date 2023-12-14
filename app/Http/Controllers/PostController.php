@@ -37,7 +37,7 @@ class PostController extends Controller
         //dump($request);
         //dd($request);
         //$request->dump();
-        /* $request->validate([
+       /*  $request->validate([
             'tytul' => 'required|min:6',
             'autor' => 'required|min:2',
             'email' => 'email:rfc,dns',
