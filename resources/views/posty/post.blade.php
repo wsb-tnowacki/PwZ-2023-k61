@@ -62,7 +62,9 @@
 @endif
 <br>
 <a href="{{route('posty.index')}}"><button class="btn btn-primary" type="button">Powrót na listę postów</button></a>
+@auth
 <a href="{{route('posty.edit',$post->id)}}"><button class="btn btn-success" type="button">Edytuj post</button></a>
 <button class="btn btn-danger" type="submit">Usuń post</button>
+@endauth
 </form>
 @endsection
