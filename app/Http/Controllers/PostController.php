@@ -7,6 +7,7 @@ use App\Models\Posty;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Redis\Limiters\DurationLimiterBuilder;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
 class PostController extends Controller
@@ -22,7 +23,7 @@ class PostController extends Controller
     {
         //
         //$posty = Posty::all(); // $posty = new Posty(); $posty->all();
-        $posty = Posty::paginate(5);
+        $posty = Posty::with('user')->paginate(5);
         return view('posty.index', compact('posty')); 
     }
 
@@ -52,9 +53,10 @@ class PostController extends Controller
             'email' => 'email:rfc,dns',
             'tresc' => 'required|min:5'
         ]); */
-        $posty = new Posty();
+        $posty = new Posty();vi
         $posty->tytul = request('tytul');
-        $posty->autor = request('autor');
+        //$posty->autor = request('autor');
+        $posty->user_id = Auth::user()->id;
         $posty->email = request('email');
         $posty->tresc = request('tresc');
         $posty->save();
@@ -67,7 +69,7 @@ class PostController extends Controller
     public function show(string $id):View
     {
         //echo "Show: $id";
-        $post = Posty::findOrFail($id);
+        $post = Posty::with('user')->findOrFail($id);
         return view('posty.post', compact('post'));
     }
 
@@ -90,7 +92,7 @@ class PostController extends Controller
         //echo "Update: $id";
         $post = Posty::findOrFail($id);
         $post->tytul = request('tytul');
-        $post->autor = request('autor');
+        //$post->autor = request('autor');
         $post->email = request('email');
         $post->tresc = request('tresc');
         $post->update();

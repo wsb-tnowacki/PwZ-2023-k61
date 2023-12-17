@@ -14,12 +14,33 @@ class PostyTableSeeder extends Seeder
      */
     public function run(): void
     {
-        Posty::factory(5)->create();
+        
         /* User::factory()->create([
             'name' => "Test User",
             'email' => "test@wp.pl",
             'password' => password_hash('tester', PASSWORD_DEFAULT)
         ]); */
+      /*   User::factory()->create([
+            'name' => "Admin",
+            'email' => "admin@wsb.poznan.pl",
+            'password' => password_hash('Test1234', PASSWORD_DEFAULT)
+        ]);
+        User::factory()->create([
+            'name' => "Test User",
+            'email' => "test@wp.pl",
+            'password' => password_hash('tester', PASSWORD_DEFAULT)
+        ]);
+        User::factory()->create([
+            'name' => "Test2 User",
+            'email' => "test2@wp.pl",
+            'password' => password_hash('tester', PASSWORD_DEFAULT)
+        ]);
+        User::factory()->create([
+            'name' => "Test3 User",
+            'email' => "test3@wp.pl",
+            'password' => password_hash('tester', PASSWORD_DEFAULT)
+        ]); */
+        Posty::factory(25)->create();
 
     }
 }

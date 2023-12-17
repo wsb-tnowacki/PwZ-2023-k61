@@ -29,7 +29,7 @@
 @endif
 <div class="form-group">
   <label for="autor">Autor</label>
-  <input type="text" class="form-control" name="autor" id="autor" placeholder="Podaj autora posta" value="{{ $post->autor }}" disabled="disabled">
+  <input type="text" class="form-control" name="autor" id="autor" placeholder="Podaj autora posta" value="{{ $post->user->name }}" disabled="disabled">
 </div>
 @if($errors->get('autor'))
 <div class=" alert alert-danger">

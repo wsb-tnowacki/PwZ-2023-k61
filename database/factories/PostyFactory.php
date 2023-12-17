@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Posty>
@@ -16,9 +18,16 @@ class PostyFactory extends Factory
      */
     public function definition(): array
     {
+        $user_id = User::get('id')->toArray();
+        $id_user = array();
+        foreach ($user_id as $key) {
+            array_push($id_user,$key['id']);
+        }
+        $los_id_user = Arr::random($id_user);
         return [
             'tytul' => fake()->sentence(fake()->numberBetween(2,7)),
-            'autor' => fake()->name(),
+           // 'autor' => fake()->name(),
+            'user_id' => $los_id_user,
             'email' => fake()->freeEmail(),
             'tresc' => fake()->text(),
             'created_at' => fake()->dateTime()
